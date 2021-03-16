@@ -8,16 +8,16 @@ on:
 
 jobs:
   check_format:
-  runs-on: ubuntu-latest
-  steps:
-    - name: Install Crystal
-      uses: oprypin/install-crystal@v1
-    - name: Check out repository code
-      uses: actions/checkout@v2
-    - name: Install dependencies
-      run: shards install --ignore-crystal-version
-    - name: Check format
-      run: crystal tool format --check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install Crystal
+        uses: oprypin/install-crystal@v1
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Install dependencies
+        run: shards install --ignore-crystal-version
+      - name: Check format
+        run: crystal tool format --check
 
   test:
     strategy:
