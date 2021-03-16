@@ -297,7 +297,7 @@ describe "icr command" do
       ISO8859_1 = :latin
       A =~ /test/
       Abc_B = "123"
-      Abc_B =~ /^[A-Z]+([a-z_0-9_\_]+)?\s*=[^=~]/
+      Abc_B =~ /^[A-Z]+([a-z_0-9_\\_]+)?\\s*=[^=~]/
       CRYSTAL
       icr(input).should_not match /dynamic\sconstant/
     end
@@ -314,9 +314,9 @@ describe "icr command" do
     it "allows for regex checking with constant" do
       input = <<-CRYSTAL
       Abc_B = "123"
-      Abc_B =~ /^\d+/
+      Abc_B =~ /^\\d+/
       CRYSTAL
-      icr(input).should match /0/
+      icr(input).should match /\=> 0/
     end
 
     it "does not catch constant equality with constants with lower case letters" do

@@ -1,6 +1,6 @@
 lib LibReadline
   fun rl_insert_text(text : UInt8*)
-  fun rl_redisplay()
+  fun rl_redisplay
   $rl_point : Int32
 end
 
